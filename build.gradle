@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.6
+
+version = '1.0-SNAPSHOT'
+group = 'org.vbossica'
+
+jettyVersion = '8.0.4.v20111024'
+jcommanderVersion = '1.19'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile "org.eclipse.jetty:jetty-server:${jettyVersion}",
+          "org.eclipse.jetty:jetty-webapp:${jettyVersion}",
+          "com.beust:jcommander:${jcommanderVersion}"
+}
+
+install.dependsOn ':build'
+
+ideaProject {
+  javaVersion = '1.6'
+}
